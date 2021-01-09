@@ -1,12 +1,14 @@
+require ('dotenv').config();
 const express = require ('express');
 const  app = express();
 
 var puerto = process.env.PORT || 80;
+app.set('view engine','ejs');
 
 app.get('/',(req,res)=>{
-    res.send("servidor en el puerto  DE HEROKU ")
+    res.render("index.ejs")
 })
 
 app.listen(puerto,()=>{
-    console.log("servidor en el puerto 80")
+    console.log("Servidor Activo",process.env.db)
 })
