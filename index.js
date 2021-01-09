@@ -1,7 +1,7 @@
 const express = require ('express');
 const  app = express();
 
-var puerto = process.env.port || 80;
+var puerto = process.env.PORT || 80;
 
 app.get('/',(req,res)=>{
     res.send("servidor en el puerto  DE HEROKU ")
