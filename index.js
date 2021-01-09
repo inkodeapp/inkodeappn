@@ -4,8 +4,7 @@ const  app = express();
 var puerto = process.env.port || 80;
 
 app.get('/',(req,res)=>{
-    res.send("servidor en el puerto  5000")
-
+    res.send("servidor en el puerto  DE HEROKU ")
 })
 
 app.listen(puerto,()=>{
