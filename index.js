@@ -1,14 +1,17 @@
-require ('dotenv').config();
-const express = require ('express');
-const  app = express();
+require("dotenv").config();
+const express = require("express");
+const app = express();
+const morgan = require("morgan");
+const router = require("./src/Routes/Route");
 
-var puerto = process.env.PORT || 80;
-app.set('view engine','ejs');
+app.set("port", process.env.PORT || 80);
+app.use(morgan("dev"));
 
-app.get('/',(req,res)=>{
-    res.render("index.ejs")
-})
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-app.listen(puerto,()=>{
-    console.log("Servidor Activo",process.env.db)
-})
+app.use("/", router);
+
+app.listen(app.get("port"), () => {
+  console.log("Servidor Activo", app.get("port"));
+});
